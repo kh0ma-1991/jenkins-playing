@@ -5,6 +5,6 @@ node {
     archiveArtifacts artifacts: '*.png', fingerprint: true
   }
   stage('Trigger downstream') {
-    build job: 'MB2', wait: false
+    build job: "MB2${env.BRANCH_NAME}", wait: false
   }
 }
