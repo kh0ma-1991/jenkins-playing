@@ -1,0 +1,5 @@
+node {
+    stage ('Print envs') {
+        sh 'printenv'
+    }
+}
