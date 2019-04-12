@@ -1,1 +1,1 @@
-sh 'echo $JOB_NAME'
+println "LOL"
