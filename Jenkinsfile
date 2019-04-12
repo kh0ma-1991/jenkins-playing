@@ -4,6 +4,6 @@ node {
     archiveArtifacts artifacts: '*.png', fingerprint: true
   }
   stage('Trigger downstream') {
-    build job: 'MB2'
+    build job: 'MB2', wait: false
   }
 }
