@@ -1,1 +1,5 @@
-println "LOL"
+node {
+  stage('OLOLO) {
+    sh 'pwd'
+  }
+}
