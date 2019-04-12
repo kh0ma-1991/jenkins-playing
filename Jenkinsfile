@@ -1,5 +1,5 @@
 node {
-  stage('OLOLO) {
+  stage('OLOLO') {
     sh 'pwd'
   }
 }
