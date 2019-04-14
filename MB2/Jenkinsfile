@@ -22,7 +22,7 @@ node {
     stage ('Print envs') {
         sh 'printenv'
     }
-    copyArtifacts(projectName: 'sourceJob',
+    copyArtifacts(projectName: "MB1/${env.BRANCH_NAME}",
             selector: [$class: 'ParameterizedBuildSelector',
                        parameterName: 'copyArtifactSelector'] )
     sh 'ls -a'
