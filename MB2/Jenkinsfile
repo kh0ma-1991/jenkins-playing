@@ -1,5 +1,10 @@
 #!/usr/bin/env groovy
 properties([
+        parameters([
+                [$class: 'BuildSelectorParameter',
+                 defaultSelector: upstream(fallbackToLastSuccessful: true),
+                 description: '',
+                 name: 'copyArtifactSelector']]),
         buildDiscarder(
                 logRotator(
                         artifactDaysToKeepStr: '',
