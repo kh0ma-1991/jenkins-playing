@@ -17,6 +17,8 @@ properties([
         ])
 ])
 
+println upstream().getClass()
+
 node {
     checkout scm
     stage ('Print envs') {
