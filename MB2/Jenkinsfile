@@ -22,4 +22,15 @@ node {
     stage ('Print envs') {
         sh 'printenv'
     }
+    while (true) {
+        def cmd = input message:'What to run? (if you want continue just type `_continue`)', parameters: [string(defaultValue: '', description: 'Groovy Script', name: 'cmd')]
+        if ("_continue".equals(cmd)) {
+            break
+        }
+        try {
+            evaluate(cmd)
+        } catch (e) {
+            print e
+        }
+    }
 }
