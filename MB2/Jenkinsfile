@@ -1,10 +1,13 @@
 #!/usr/bin/env groovy
 properties([
         parameters([
-                [$class: 'BuildSelectorParameter',
-                 defaultSelector: upstream(),
-                 description: '',
-                 name: 'copyArtifactSelector']]),
+//                [$class: 'BuildSelectorParameter',
+//                 defaultSelector: upstream(),
+//                 description: '',
+//                 name: 'copyArtifactSelector'],
+                string(name: 'UpstreamJobName'),
+                string(name: 'UpstreamBuildNumber')
+        ]),
         buildDiscarder(
                 logRotator(
                         artifactDaysToKeepStr: '',
@@ -22,8 +25,10 @@ node {
     stage ('Print envs') {
         sh 'printenv'
     }
-    copyArtifacts(projectName: "MB1/${env.BRANCH_NAME}",
-            selector: [$class: 'ParameterizedBuildSelector',
-                       parameterName: 'copyArtifactSelector'] )
+//    copyArtifacts(projectName: "MB1/${env.BRANCH_NAME}",
+//            selector: [$class: 'ParameterizedBuildSelector',
+//                       parameterName: 'copyArtifactSelector'] )
+    copyArtifacts(projectName: UpstreamJobName,
+            selector: specific(UpstreamBuildNumber))
     sh 'ls -a'
 }
