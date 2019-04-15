@@ -37,4 +37,5 @@ node {
             fingerprintArtifacts: true
     )
     sh 'ls -a'
+    sh 'ls -a upstreamArtifact'
 }
