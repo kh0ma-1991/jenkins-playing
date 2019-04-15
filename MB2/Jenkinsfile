@@ -42,8 +42,12 @@ node {
     dir('upstreamArtifact') {
         files = findFiles(glob: '*.txt') //Pipeline Utility Steps
         files.each { file ->
-            println "Path ${file.path}"
+            println "Path ${file.getPath()}"
         }
         deleteDir()
     }
+
+    sh 'ls -a'
+    sh 'ls -a upstreamArtifact'
+
 }
