@@ -15,8 +15,8 @@ properties([
 node {
   checkout scm
   stage('DOWNLOAD FILE') {
-    sh "echo ${currentBuild.getFullProjectName() + env.BUILD_NUMBER} > build_info.txt"
-    sh "date > current_date.txt"
+    sh "echo ${currentBuild.getFullProjectName() + env.BUILD_NUMBER} > build_info_${env.BUILD_NUMBER}.txt"
+    sh "date > current_date_${env.BUILD_NUMBER}.txt"
     archiveArtifacts artifacts: '*.txt', fingerprint: true
   }
   stage('Trigger downstream') {
