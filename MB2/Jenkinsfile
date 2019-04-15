@@ -23,7 +23,7 @@ properties([
 node {
     checkout scm
     stage ('Print envs') {
-        sh 'printenv'
+        sh 'env'
     }
 //    copyArtifacts(projectName: "MB1/${env.BRANCH_NAME}",
 //            selector: [$class: 'ParameterizedBuildSelector',
