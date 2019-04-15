@@ -28,7 +28,13 @@ node {
 //    copyArtifacts(projectName: "MB1/${env.BRANCH_NAME}",
 //            selector: [$class: 'ParameterizedBuildSelector',
 //                       parameterName: 'copyArtifactSelector'] )
-    copyArtifacts(projectName: UpstreamJobName,
-            selector: specific(UpstreamBuildNumber))
+    copyArtifacts(
+            projectName: UpstreamJobName,
+            selector: specific(UpstreamBuildNumber),
+            flatten: true,
+            target: upstreamArtifact,
+            filter: '*.txt',
+            fingerprintArtifacts: true
+    )
     sh 'ls -a'
 }
