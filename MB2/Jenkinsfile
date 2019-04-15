@@ -32,7 +32,7 @@ node {
             projectName: UpstreamJobName,
             selector: specific(UpstreamBuildNumber),
             flatten: true,
-            target: upstreamArtifact,
+            target: 'upstreamArtifact',
             filter: '*.txt',
             fingerprintArtifacts: true
     )
