@@ -38,4 +38,7 @@ node {
     )
     sh 'ls -a'
     sh 'ls -a upstreamArtifact'
+
+    files = findFiles(glob: '*.txt')
+    println files
 }
