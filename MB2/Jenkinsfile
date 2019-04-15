@@ -39,7 +39,7 @@ node {
     sh 'ls -a'
     sh 'ls -a upstreamArtifact'
 
-    dir('/upstreamArtifact') {
+    dir('upstreamArtifact') {
         files = findFiles(glob: '*.txt') //Pipeline Utility Steps
         files.each { file ->
             println "Path ${file.path}"
